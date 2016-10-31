@@ -1,0 +1,58 @@
+.container {
+  width: 970px !important;
+}
+
+.main-headline {
+  padding: 70px 0;
+  text-align: center;
+}
+
+.login-form {
+  text-align: center;
+}
+
+.login-form > .prompt {
+  font-size: 32px;
+}
+
+.login-form > .form-control,
+.login-form > .btn {
+  margin: 10px auto;
+  max-width: 360px;
+}
+
+.login-form > .help {
+  margin-top: 32px;
+  color: #333;
+}
+
+.help a {
+  font-weight: bold;
+}
+
+.login-form > .error {
+  color: red;
+}
+
+.main-error {
+  color: red;
+  text-align: center;
+}
+
+.main-ui {
+  text-align: center;
+
+}
+
+.btn-float-right {
+  float: right;
+}
+
+.info-panel {
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;  
+  margin: 15px 0;
+  min-height: 300px;
+  padding: 8px 12px;
+  width: 100%;
+}

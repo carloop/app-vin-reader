@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Carloop Code Reader</title>
+    <meta name="description" content="Carloop app to read and clear diagnostic trouble codes in a car">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+    
+    <!-- Bootstrap and Flat UI-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+    <link href="carloop-app.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="https://www.carloop.io">Carloop</a>
+        </div>
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="..">Back to apps</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://www.carloop.io/docs">Documentation</a></li>
+          <li><a href="https://github.com/carloop/app-code-reader">Source code</a></li>
+      </nav>
+      <div id="app">
+        <div class="main-headline">
+          <h1 class="main-title">Code Reader App</h1>
+        </div>
+      </div>
+
+      <script id="template-login-form" type="text/template">
+        <form id="login-form" class="login-form">
+          <h1 class="main-title">Code Reader App</h1>
+          <h2 class="prompt">Log in with your Particle account</h2>
+          <input id="username" placeholder="Email address" class="form-control">
+          <input id="password" type="password" placeholder="Password" class="form-control">
+          <input id="login" type="submit" value="Log in" class="btn btn-block btn-lg btn-info">
+          <p id="error-message" class="error"></p>
+          <p class="help">Don't have an account yet?<br>
+            <a href="https://www.carloop.io/docs">See the docs to set up your account</a>
+          </p>
+        </form>
+      </script>
+
+      <script id="template-select-device" type="text/template">
+        <form id="select-device" class="login-form">
+          <h1 class="main-title">Code Reader App</h1>
+          <h2 class="prompt">Select your Carloop device</h2>
+
+          <select id="device" class="form-control select select-primary" data-toggle="select">
+            <% devices.forEach(function (d) { %>
+              <option value="<%- d.id %>"><%- d.name || d.id %></option>
+            <% }); %>
+          </select>
+
+          <input type="submit" value="Use this Carlop" class="btn btn-block btn-lg btn-info">
+        </form>
+      </script>
+
+      <script id="template-error" type="text/template">
+        <h2 class="main-error">An error occurred. Refresh and try again</h1>
+      </script>
+    
+      <script id="main-ui" type="text/template">
+        <button id="logout-button" class="btn btn-sm btn-default btn-float-right">Log out</button>
+        <h1>Code Reader App</h1>
+        <div class="row">
+          <div class="col-sm-6">
+            <button id="read-codes" class="btn btn-lg btn-primary">Read trouble codes</button>
+            <button id="clear-codes" class="btn btn-lg btn-info">Clear trouble codes</button>
+          </div>
+          <div class="col-sm-6 text-right">
+            <button id="flash-button" class="btn btn-lg btn-warning">Flash this app to my Carloop</button>
+          </div>
+        </div>
+        <div id="console" class="info-panel"></div>
+      </script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.auto.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/js/flat-ui.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/particle-api-js/5/particle.min.js"></script>
+      <script src="code-reader.js"></script>
+  </body>
+</html>
